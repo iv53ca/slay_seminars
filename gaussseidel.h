@@ -1,15 +1,13 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-vector<double> gaussSeidel(const vector<vector<double>>& A, const vector<double>& b, int maxIterations = 100, double tolerance = 1e-6) {
+std::vector<double> gaussSeidel(const std::vector<std::vector<double>>& A, const std::vector<double>& b, int maxIterations = 100, double tolerance = 1e-6) {
     int n = A.size();
 
-    vector<double> x(n, 0.0);          // Начальное приближение x
+    std::vector<double> x(n, 0.0);          // Начальное приближение x
 
     for (int iteration = 0; iteration < maxIterations; ++iteration) {
-        vector<double> xPrev = x;      // Предыдущее приближение x
+        std::vector<double> xPrev = x;      // Предыдущее приближение x
 
         for (int i = 0; i < n; ++i) {
             double sum1 = 0.0;
@@ -43,16 +41,16 @@ vector<double> gaussSeidel(const vector<vector<double>>& A, const vector<double>
 }
 
 int main() {
-    vector<vector<double>> A = {{4, -1, 1}, {-1, 4, -2}, {1, -2, 4}}; // Матрица A
-    vector<double> b = {12, -1, 5};                                 // Вектор правых частей b
+    std::vector<std::vector<double>> A = {{4, -1, 1}, {-1, 4, -2}, {1, -2, 4}}; // Матрица A
+    std::vector<double> b = {12, -1, 5};                                 // Вектор правых частей b
 
-    vector<double> x = gaussSeidel(A, b);
+    std::vector<double> x = gaussSeidel(A, b);
 
-    cout << "Solution x:" << endl;
+    std::cout << "Solution x:" << std::endl;
     for (double val : x) {
-        cout << val << " ";
+        std::cout << val << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
     return 0;
 }
